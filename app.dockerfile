@@ -30,4 +30,4 @@ WORKDIR /
 ENV LOG=info
 COPY --from=builder /tpm/target/x86_64-unknown-linux-musl/release/twitch-points-miner /app
 EXPOSE 3000
-ENTRYPOINT ["/app"]
+ENTRYPOINT ["/app", "--token", "/tmp/tokens.json", "--analytics-db", "/tmp/analytics.db"]
